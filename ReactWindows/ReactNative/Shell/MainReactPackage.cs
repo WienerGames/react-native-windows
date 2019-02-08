@@ -36,6 +36,7 @@ using ReactNative.Views.TextInput;
 using ReactNative.Views.View;
 using ReactNative.Views.Web;
 using System.Collections.Generic;
+using ReactNative.Views.DatePicker;
 
 namespace ReactNative.Shell
 {
@@ -84,6 +85,9 @@ namespace ReactNative.Shell
         {
             return new List<IViewManager>
             {
+                new ReactCalendarDatePickerManager(),
+                new ReactDatePickerManager(),
+                new ReactTimePickerManager(),
                 new ReactSimpleTextViewManager(),
                 new ReactFlipViewManager(),
                 new ReactImageManager(),

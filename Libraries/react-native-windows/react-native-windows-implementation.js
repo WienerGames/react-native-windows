@@ -9,6 +9,9 @@
 
 var ReactWindows = {
   // Components
+  get DatePickerWindows() { return require('DatePickerWindows'); },
+  get TimePickerWindows() { return require('TimePickerWindows'); },
+  get CalendarDatePickerWindows() { return require('CalendarDatePickerWindows'); },
   get FlipViewWindows() { return require('FlipViewWindows'); },
   get PasswordBoxWindows() { return require('PasswordBoxWindows'); },
   get ProgressBarWindows() { return require('ProgressBarWindows'); },
