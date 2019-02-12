@@ -189,6 +189,9 @@ namespace ReactNative.Modules.DeviceInfo
             var defaultMetrics = mainView == null ? GetDefaultDisplayMetrics() : mainView.CurrentDisplayMetrics;
             dimensions.Add("window", GetDimensions(defaultMetrics));
 
+            var screenMetrics = defaultMetrics; //TODO return the actual screen bounds
+            dimensions.Add("screen", GetDimensions(screenMetrics));
+
             foreach (var info in _registeredViews.Values)
             {
                 dimensions.Add($"{info.RootViewTag}", GetDimensions(info.CurrentDisplayMetrics));
