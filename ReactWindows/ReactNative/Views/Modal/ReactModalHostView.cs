@@ -33,7 +33,7 @@ namespace ReactNative.Views.Modal
 
         private TouchHandler _touchHandler;
 
-        /// <inheritdoc />                                                    
+        /// <inheritdoc />
         public AccessibilityTrait[] AccessibilityTraits { get; set; }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace ReactNative.Views.Modal
                 if (value is FrameworkElement element)
                 {
                     if (value is BorderedCanvas canvas)
-                        canvas.Background = new SolidColorBrush(Colors.Transparent);
+                        //canvas.Background = new SolidColorBrush(Colors.Transparent);
 
                     _touchHandler = new TouchHandler(element);
                 }
@@ -75,7 +75,7 @@ namespace ReactNative.Views.Modal
         public event Action<ReactModalHostView> OnShowListener;
 
         /// <summary>
-        /// Instantiates the <see cref="ReactModalHostView"/>. 
+        /// Instantiates the <see cref="ReactModalHostView"/>.
         /// </summary>
         public ReactModalHostView()
         {
@@ -97,7 +97,7 @@ namespace ReactNative.Views.Modal
                 return;
             }
 
-            _contentDialog = new ContentDialog
+            _contentDialog = new ContentDialog()
             {
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Stretch,
@@ -106,8 +106,8 @@ namespace ReactNative.Views.Modal
                     ["ContentDialogBorderWidth"] = new Thickness(0),
                     ["ContentDialogContentMargin"] = new Thickness(0),
                     ["ContentDialogContentScrollViewerMargin"] = new Thickness(0),
-                    ["ContentDialogMaxHeight"] = double.NaN,
-                    ["ContentDialogMaxWidth"] = double.NaN,
+                    ["ContentDialogMaxHeight"] = ((Frame)Window.Current.Content).ActualHeight,
+                    ["ContentDialogMaxWidth"] = ((Frame)Window.Current.Content).ActualWidth,
                     ["ContentDialogMinHeight"] = 0.0,
                     ["ContentDialogMinWidth"] = 0.0,
                     ["ContentDialogPadding"] = new Thickness(0)
@@ -162,7 +162,7 @@ namespace ReactNative.Views.Modal
             this.GetReactContext().GetNativeModule<ExceptionsManagerModule>().BeforeShowDevOptionsDialog -= Close;
         }
 
-        /// <inheritdoc />                                              
+        /// <inheritdoc />
         protected override AutomationPeer OnCreateAutomationPeer()
         {
             return new DynamicAutomationPeer<ReactModalHostView>(this);
@@ -192,7 +192,7 @@ namespace ReactNative.Views.Modal
         private async void InputPaneOnHidingOrShowing(InputPane sender, InputPaneVisibilityEventArgs args)
         {
             // Delay until the input pane has finished hiding or showing
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
+            await Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
             {
                 SetContentSize();
             });
