@@ -156,7 +156,7 @@ namespace ReactNative.Views.Text
         [ReactProp(ViewProps.TextAlign)]
         public void SetTextAlign(string textAlign)
         {
-            var textAlignment = textAlign == "auto" || textAlign == null ? 
+            var textAlignment = textAlign == "auto" || textAlign == null ?
                 TextAlignment.DetectFromContent :
                 EnumHelpers.Parse<TextAlignment>(textAlign);
 
@@ -247,6 +247,10 @@ namespace ReactNative.Views.Text
 
         private void UpdateTextBlockCore(RichTextBlock textBlock, bool measureOnly)
         {
+            if (_fontSize < 1)
+            {
+                _fontSize = 1;
+            }
             textBlock.CharacterSpacing = _letterSpacing;
             textBlock.LineHeight = _lineHeight;
             textBlock.MaxLines = _numberOfLines;

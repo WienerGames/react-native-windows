@@ -50,7 +50,7 @@ namespace ReactNative.Views.Modal
                 if (value is FrameworkElement element)
                 {
                     if (value is BorderedCanvas canvas)
-                        //canvas.Background = new SolidColorBrush(Colors.Transparent);
+                        canvas.Background = new SolidColorBrush(Colors.Transparent);
 
                     _touchHandler = new TouchHandler(element);
                 }
