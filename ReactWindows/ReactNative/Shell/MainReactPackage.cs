@@ -37,6 +37,7 @@ using ReactNative.Views.View;
 using ReactNative.Views.Web;
 using System.Collections.Generic;
 using ReactNative.Views.DatePicker;
+using ReactNative.Views.DateFlyout;
 
 namespace ReactNative.Shell
 {
@@ -87,6 +88,7 @@ namespace ReactNative.Shell
             {
                 new ReactCalendarDatePickerManager(),
                 new ReactDatePickerManager(),
+                new ReactDateFlyoutManager(),
                 new ReactTimePickerManager(),
                 new ReactSimpleTextViewManager(),
                 new ReactFlipViewManager(),

@@ -97,7 +97,7 @@ namespace ReactNative.Views.Modal
                 return;
             }
 
-            _contentDialog = new ContentDialog()
+            _contentDialog = new ContentDialog
             {
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Stretch,

@@ -189,6 +189,8 @@
     <Compile Include="Views\DatePicker\ReactDatePickerShadowNode.cs" />
     <Compile Include="Views\DatePicker\ReactTimePickerManager.cs" />
     <Compile Include="Views\DatePicker\ReactTimePickerShadowNode.cs" />
+    <Compile Include="Views\DateFlyout\ReactDateFlyoutManager.cs" />
+    <Compile Include="Views\DateFlyout\ReactDateFlyoutShadowNode.cs" />
     <EmbeddedResource Include="Properties\ReactNative.rd.xml" />
   </ItemGroup>
   <ItemGroup>
