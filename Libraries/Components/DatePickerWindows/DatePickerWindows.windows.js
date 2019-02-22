@@ -54,38 +54,45 @@ class DatePickerWindows extends React.Component {
 
     /**
      * Header title.
-     * 
+     *
      * Sets a title for the picker header component.
      */
     header: PropTypes.string,
 
     /**
      * Component height
-     * 
+     *
      * Sets the date picker prefered height
      */
     height: PropTypes.number,
 
     /**
      * Component visability
-     * 
+     *
      * Sets the component visability
      */
     isVisible: PropTypes.bool,
 
     /**
      * Chage date on scroll
-     * 
+     *
      * Handles date changes on date change scroll
      */
-    dateChangeScroll: PropTypes.func
-    
+    dateChangeScroll: PropTypes.func,
+
+    /**
+     * Open calendar programatically
+     *
+     */
+    isOpen: PropTypes.bool
+
   };
 
   static defaultProps = {
     date: new Date(),
     header: '',
-    isVisible: true
+    isVisible: true,
+    isOpen: false
   }
 
   _dateChangeScroll = (event) => {
@@ -96,12 +103,13 @@ class DatePickerWindows extends React.Component {
     this.props.onChange && this.props.onChange(new Date(event.nativeEvent.date));
   }
 
-  render(){
+  render() {
     return (
       <View pointerEvents={this.props.isVisible ? 'auto' : 'none'}
-        style={{opacity: this.props.isVisible ? 1 : 0}}>
+        style={{ opacity: this.props.isVisible ? 1 : 0 }}>
         <NativeWindowsDatePicker
           ref={DATEPICKER_REF}
+          isOpen={this.props.isOpen}
           style={this.props.style}
           date={this.props.date}
           minYear={this.props.minYear}
